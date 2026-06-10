@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #020812;
+    color: #E5EAF3;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020812;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #08255C;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #006BFF;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid #006BFF;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(0, 107, 255, 0.3);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  .section-label {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase;
+    background: rgba(0, 107, 255, 0.1);
+    border: 1px solid rgba(0, 107, 255, 0.3);
+    color: #006BFF;
+    font-family: 'Sora', sans-serif;
+  }
+
+  .card-glass {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-glass:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 107, 255, 0.35);
+    box-shadow: 0 0 24px rgba(0, 107, 255, 0.08);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm text-white transition-all duration-200;
+    background: #006BFF;
+    font-family: 'Sora', sans-serif;
+  }
+
+  .btn-primary:hover {
+    background: #0057d4;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 107, 255, 0.35);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #E5EAF3;
+    font-family: 'Sora', sans-serif;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(0, 107, 255, 0.6);
+    color: #ffffff;
+    background: rgba(0, 107, 255, 0.08);
+    transform: translateY(-1px);
+  }
+
+  /* Pattern decorative background */
+  .pattern-bg {
+    background-image: url('/assets/pattern.png');
+    background-size: 480px auto;
+    background-repeat: repeat;
+    opacity: 0.04;
+  }
+
+  /* Tech line separator */
+  .tech-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 107, 255, 0.4), transparent);
+  }
+
+  /* Card with corner cut — brand pattern language */
+  .card-cut {
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+  }
+
+  .card-cut-sm {
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  }
+
+  /* Geometric module — brand pattern element */
+  .geo-module {
+    @apply absolute rounded-xl border;
+    border-color: rgba(0, 107, 255, 0.15);
+    background: rgba(0, 107, 255, 0.04);
+  }
+
+  /* Dashboard mockup elements */
+  .dash-bar {
+    @apply rounded-full;
+    background: linear-gradient(90deg, #006BFF, #A7C7FF);
+  }
+
+  /* Metric cards in hero */
+  .metric-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+  }
+}
+
+@layer utilities {
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #006BFF 0%, #A7C7FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(0, 107, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 107, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-600 { animation-delay: 600ms; }
+
+  .opacity-0-init { opacity: 0; }
+}
